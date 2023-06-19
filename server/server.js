@@ -5,14 +5,14 @@ require('dotenv').config();
 const app = express();
 
 // Route includes
-const userRouter = require('./routes/user.router');
+const templateRouter = require('./routes/template.router');
 
 // Body parser middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 /* Routes */
-app.use('/api/user', userRouter);
+app.use('/', templateRouter)
 
 // Serve static files
 app.use(express.static('build'));
