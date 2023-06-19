@@ -14,13 +14,6 @@ const userRouter = require('./routes/user.router');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// Passport Session Configuration //
-app.use(sessionMiddleware);
-
-// start up passport sessions
-app.use(passport.initialize());
-app.use(passport.session());
-
 /* Routes */
 app.use('/api/user', userRouter);
 
