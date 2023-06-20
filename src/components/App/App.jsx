@@ -7,6 +7,8 @@ import {
   Switch,
 } from 'react-router-dom';
 import Home from '../Home/Home';
+import Generator from '../Generator/Generator';
+import Battle from '../Battle/Battle';
 
 function App() {
   const dispatch = useDispatch();
@@ -16,6 +18,12 @@ function App() {
         <Redirect exact from="/" to="/home" />
         <Route exact path='/home'>
           <Home />
+        </Route>
+        <Route exact path='/generator'>
+          <Generator />
+        </Route>
+        <Route exact path='/battle'>
+          <Battle />
         </Route>
       </Switch>
     </Router>
