@@ -10,8 +10,8 @@ import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 function Home(){
     const history = useHistory();
 
-    const goGenerator = () => {
-        history.push('/generator');
+    const goPokedex = () => {
+        history.push('/pokedex');
     }
 
     const goBattle = () => {
@@ -24,7 +24,7 @@ function Home(){
                 <CardActions>
                     <Stack alignItems="center" justifyContent="center" spacing={2} sx={{ mx: 'auto', py: 2 }}>
                         <Button variant='contained'>Start</Button>
-                        <Button variant='contained' onClick={goGenerator}>Pokemon Generator</Button>
+                        <Button variant='contained' onClick={goPokedex}>Pokedex</Button>
                         <Button variant='contained' onClick={goBattle}>Battle Tester</Button>
                     </Stack>
                 </CardActions>

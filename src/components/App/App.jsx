@@ -7,7 +7,7 @@ import {
   Switch,
 } from 'react-router-dom';
 import Home from '../Home/Home';
-import Generator from '../Generator/Generator';
+import Pokedex from '../Pokedex/Pokedex';
 import Battle from '../Battle/Battle';
 
 function App() {
@@ -19,8 +19,8 @@ function App() {
         <Route exact path='/home'>
           <Home />
         </Route>
-        <Route exact path='/generator'>
-          <Generator />
+        <Route exact path='/pokedex'>
+          <Pokedex />
         </Route>
         <Route exact path='/battle'>
           <Battle />
