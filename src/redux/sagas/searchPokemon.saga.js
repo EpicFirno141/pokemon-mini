@@ -3,14 +3,16 @@ import { put, takeLatest } from 'redux-saga/effects';
 
 function* fetchPokemonInfo(action) {
   try {
+    console.log('Starting API Call');
+
     const response = yield axios.get(`https://pokeapi.co/api/v2/pokemon/${action.payload}`);
 
-    yield console.log(response.data);
+    console.log('Response is: ' + JSON.stringify(response.data.sprites));
 
     yield put({ type: 'SET_POKEMON_SEARCH_INFO', payload: {
         dex_id: response.data.id,
         name: response.data.name,
-        image: response.data.front_default,
+        image: response.data.sprites.front_default,
         types: response.data.types
     } });
   } catch (error) {
