@@ -5,12 +5,14 @@ require('dotenv').config();
 const app = express();
 
 // Route includes
+const pokedexRouter = require('./routes/pokedex.router');
 
 // Body parser middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 /* Routes */
+app.use('/api/pokedex', pokedexRouter);
 
 // Serve static files
 app.use(express.static('build'));
