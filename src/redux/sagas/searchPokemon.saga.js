@@ -131,6 +131,8 @@ function* fetchPokemonInfo(action) {
 function* addSearchPokemon(action){
   try{
       yield axios.post('/api/pokedex', action.payload);
+
+      yield put({ type: 'FETCH_POKEDEX' });
   } catch (error) {
       console.log('POST request to pokedex table error: ', error);
   }

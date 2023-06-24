@@ -10,7 +10,8 @@ router.get('/', (req, res) => {
     pokedex.base_experience, growth_rate.rate, pokedex.capture_rate 
     FROM pokedex JOIN growth_rate ON pokedex.growth_rate_id = growth_rate.id 
     JOIN "types" t1 ON pokedex.type1 = t1.id 
-    JOIN "types" t2 ON pokedex.type2 = t2.id;`;
+    JOIN "types" t2 ON pokedex.type2 = t2.id 
+    ORDER BY pokedex.national_id ASC;`;
 
     pool.query(queryText).then((response) => {
         res.send(response.rows);

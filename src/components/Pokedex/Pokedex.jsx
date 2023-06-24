@@ -9,7 +9,8 @@ import TextField from '@mui/material/TextField';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import { useDispatch, useSelector } from 'react-redux';
 import PokedexSearchEntry from './PokedexSearchEntry';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import PokedexList from './PokedexList';
 
 function Pokedex() {
     const dispatch = useDispatch();
@@ -28,6 +29,10 @@ function Pokedex() {
             setSearchState(true);
         }
     }
+
+    useEffect(() => {
+        dispatch({ type: 'FETCH_POKEDEX' });
+    }, [])
 
     return (
         <Box>
@@ -54,6 +59,7 @@ function Pokedex() {
                         <Button variant='contained' onClick={searchPokemon} sx={{ mx: 'auto' }}>Search</Button>
                     </CardActions>
                 </Card>
+                <PokedexList />
             </Stack>
         </Box>
     );
