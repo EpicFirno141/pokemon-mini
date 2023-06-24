@@ -3,8 +3,6 @@ import { put, takeLatest } from 'redux-saga/effects';
 
 function* fetchPokemonInfo(action) {
   try {
-    console.log('Starting API Call');
-
     const responsePokemon = yield axios.get(`https://pokeapi.co/api/v2/pokemon/${action.payload}`);
     const responseSpecies = yield axios.get(`https://pokeapi.co/api/v2/pokemon-species/${action.payload}`);
 
