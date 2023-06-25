@@ -164,6 +164,9 @@ CREATE TABLE friends (
 	accepting_user_id INT references "user" (id) NOT NULL
 );
 
+ALTER TABLE pokedex 
+	ADD gender_rate INT;
+
 ----INSERT STATEMENTS----
 
 INSERT INTO gender (gender) VALUES ('unknown'), ('male'), ('female');

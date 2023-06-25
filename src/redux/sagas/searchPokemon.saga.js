@@ -121,26 +121,16 @@ function* fetchPokemonInfo(action) {
         base_speed: pokemon.stats[5].base_stat,
         base_experience: pokemon.base_experience,
         growth_rate: growth,
-        capture_rate: species.capture_rate
+        capture_rate: species.capture_rate,
+        gender_rate: species.gender_rate
     } });
   } catch (error) {
       console.log('PokeAPI GET request error: ', error);
   }
 }
 
-function* addSearchPokemon(action){
-  try{
-      yield axios.post('/api/pokedex', action.payload);
-
-      yield put({ type: 'FETCH_POKEDEX' });
-  } catch (error) {
-      console.log('POST request to pokedex table error: ', error);
-  }
-}
-
 function* searchPokemonSaga() {
   yield takeLatest('SEARCH_POKEMON', fetchPokemonInfo);
-  yield takeLatest('ADD_TO_POKEDEX', addSearchPokemon);
 }
 
 export default searchPokemonSaga;

@@ -11,8 +11,19 @@ function* fetchPokedex() {
   }
 }
 
+function* addSearchPokemon(action){
+    try{
+        yield axios.post('/api/pokedex', action.payload);
+  
+        yield put({ type: 'FETCH_POKEDEX' });
+    } catch (error) {
+        console.log('POST request to pokedex table error: ', error);
+    }
+  }
+
 function* pokedexSaga() {
   yield takeLatest('FETCH_POKEDEX', fetchPokedex);
+  yield takeLatest('ADD_TO_POKEDEX', addSearchPokemon);
 }
 
 export default pokedexSaga;

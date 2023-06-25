@@ -13,7 +13,8 @@ const searchPokemonInfoReducer = (state = {
   base_speed: 0,
   base_experience: 0,
   growth_rate: 0,
-  capture_rate: 0
+  capture_rate: 0,
+  gender_rate: 0
 }, action) => {
     switch (action.type) {
       case 'SET_POKEMON_SEARCH_INFO':
